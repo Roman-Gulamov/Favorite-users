@@ -1,0 +1,2 @@
+(this["webpackJsonpfavorite-users"]=this["webpackJsonpfavorite-users"]||[]).push([[0],{9:function(e,t,s){"use strict";s.r(t);s(0);var r=s(3),n=s(1),c=function(){return Object(n.jsx)("h1",{children:"Test"})};Object(r.render)(Object(n.jsx)(c,{}),document.getElementById("root"))}},[[9,1,2]]]);
+//# sourceMappingURL=main.67b74601.chunk.js.map
