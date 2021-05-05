@@ -1,9 +1,9 @@
 import Container from 'react-bootstrap/Container';
 import Spinner from 'react-bootstrap/Spinner';
 
-import { IStatus } from '../interfaces/interface';
+import { IStatus } from '../../interfaces/interface';
 
-import { StatusMessage, Text } from '../styles/Status';
+import { StatusMessage, Text } from '../../styles/Status';
 
 
 export const Status = ({ message, spinner }: IStatus): JSX.Element => {
