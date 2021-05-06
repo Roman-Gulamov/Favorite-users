@@ -10,7 +10,8 @@ import {
     HeadingSearch,
     HeadingFavorite,
     UsersList,
-    ListFavorites } from '../../styles/Users';
+    ListFavorites,
+    FavoritesHearts } from '../../styles/Users';
 
 
 export const Users = (): JSX.Element => {
@@ -24,18 +25,28 @@ export const Users = (): JSX.Element => {
                         <input 
                             type="text" 
                             placeholder="Поиск.."
-                            onInput={event => listProps.searchName(event, listProps.searchRef)}
+                            onInput={event =>
+                                listProps.searchName(event, listProps.searchRef)
+                            }
                         />
                     </HeadingSearch>
                     <HeadingFavorite>Избранные</HeadingFavorite>
                 </UsersHeadings>
                 <UsersList>
                     <ListCards />
-                    <ListFavorites>123</ListFavorites>
+                    <ListFavorites 
+                        dragToFavorite={listProps.dragToFavorite}
+                    >
+                        123
+                        <FavoritesHearts 
+                            heartVisibility={listProps.heartVisibility} 
+                            role="img" 
+                            aria-label="heart"
+                        > &#128154;
+                        </FavoritesHearts>
+                    </ListFavorites>
                 </UsersList>
             </UsersWrapper>
         </Container>
     )
 }
-
-

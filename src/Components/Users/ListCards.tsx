@@ -6,7 +6,7 @@ import Context from '../../services/context';
 import { CARDS_DATA } from '../../data/cardsData';
 import { CardsItems } from './CardsItems';
 
-import { ListWrapper, MyCard, MyCardBody } from '../../styles/Users';
+import { ListWrapper, MyCard, MyCardBody } from '../../styles/ListCards';
 
 
 export const ListCards = (): JSX.Element => {
@@ -15,8 +15,8 @@ export const ListCards = (): JSX.Element => {
     return (
         <ListWrapper ref={listProps.searchRef}>
             <Accordion defaultActiveKey="1">
-            {CARDS_DATA.map(({ eventKey, title, min, max, disabled }) =>
-                <MyCard key={eventKey} disabled={disabled}>
+            {CARDS_DATA.map(({ eventKey, title, min, max }) =>
+                <MyCard key={eventKey}>
                     <Accordion.Toggle as={Card.Header} eventKey={eventKey}>
                         {title}
                     </Accordion.Toggle>

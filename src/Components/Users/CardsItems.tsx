@@ -12,7 +12,7 @@ import {
     InlineName,
     InlineRegistered,
     InfoBlock,
-    BlockMail } from '../../styles/Users';
+    BlockMail } from '../../styles/CardsItems';
 
 
 export const CardsItems = ({ min, max }: ICardsProps): JSX.Element => {
@@ -20,22 +20,31 @@ export const CardsItems = ({ min, max }: ICardsProps): JSX.Element => {
 
     return (
         <>
-        {listProps.usersList.map(({ registered: { age, date }, email, name: { first, last }, picture: { medium } }) =>
-            age >= min && age <= max ?
-                <CardWrapper key={date} className="cardWrapper" data-wrapper>
+        {listProps.usersList.map((card) =>
+            card.registered.age >= min && card.registered.age <= max ?
+                <CardWrapper 
+                    key={card.registered.date} 
+                    data-wrapper 
+                    draggable={true}
+                    onDragStart={(event: any) => listProps.dragStartHandler(event, card)}
+                    onDragLeave={(event: any) => listProps.dragLeaveHandler(event)}
+                    onDragEnd={(event: any) => listProps.dragEndHandler(event)}
+                    onDragOver={(event: any) => listProps.dragOverHandler(event)}
+                    onDrop={(event: any) => listProps.dropHandler(event, card)}
+                >
                     <CardImg>
-                        <img src={medium} alt={`${first} ${last}`} />
+                        <img src={card.picture.medium} alt={`${card.name.first} ${card.name.last}`} />
                     </CardImg>
                     <CardInfo>
                         <InfoInline>
-                            <InlineName data-text>{`${first} ${last}`}</InlineName>
+                            <InlineName data-text>{`${card.name.first} ${card.name.last}`}</InlineName>
                             <InlineRegistered>
                                 <span>Дата регистрации: </span> 
-                                <span>{moment(date).format('L')}</span>
+                                <span>{moment(card.registered.date).format('L')}</span>
                             </InlineRegistered>
                         </InfoInline>
                         <InfoBlock>
-                            <BlockMail>{email}</BlockMail>
+                            <BlockMail>{card.email}</BlockMail>
                         </InfoBlock>
                     </CardInfo>
                 </CardWrapper> : false
