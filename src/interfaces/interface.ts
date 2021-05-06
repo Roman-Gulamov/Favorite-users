@@ -1,21 +1,28 @@
-import { FormEvent, RefObject } from "react";
+import { DragEvent, FormEvent, RefObject } from "react";
 
+
+export interface IContext {
+    usersList: Array<IResultData>,
+    searchRef: RefObject<HTMLDivElement>
+    searchName: (event: FormEvent<HTMLInputElement>, searchRef: RefObject<HTMLDivElement>) => void,
+    heartVisibility: boolean,
+    dragToFavorite: boolean,
+    dragStartHandler: (event: DragEvent<HTMLDivElement>, card: IResultData) => void, 
+    dragLeaveHandler: (event: DragEvent<HTMLDivElement>) => void, 
+    dragEndHandler: (event: DragEvent<HTMLDivElement>) => void, 
+    dragOverHandler: (event: DragEvent<HTMLDivElement>) => void, 
+    dropHandler: (event: DragEvent<HTMLDivElement>, card: IResultData) => void
+}
 
 export interface IStatus {
     message: string,
     spinner?: boolean
 }
 
-export interface IContext {
-    usersList: Array<IResultData>,
-    searchRef: RefObject<HTMLDivElement>,
-    searchName: (event: FormEvent<HTMLInputElement>, searchRef: RefObject<HTMLDivElement>) => void
-}
 
 export interface ICardsData extends ICardsProps {
     eventKey: string,
-    title: string,
-    disabled: boolean
+    title: string
 }
 
 export interface ICardsProps {
@@ -23,9 +30,6 @@ export interface ICardsProps {
     max: number
 }
 
-export interface IDisabled {
-    disabled: boolean
-}
 
 export interface IResultData {
     email: string,
@@ -46,4 +50,12 @@ interface Name {
 
 interface Picture {
     medium: string
+}
+
+export interface IDragToFavorite {
+    dragToFavorite: boolean
+}
+
+export interface IHeartVisibility {
+    heartVisibility: boolean
 }
