@@ -70,6 +70,11 @@ export const GlobalStyle = createGlobalStyle`
         content: none;
     }
 
+    mark {
+        background-color: #006B53;
+        color: #fff;
+    }
+
     table {
         border-collapse: collapse;
         border-spacing: 0;
