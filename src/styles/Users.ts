@@ -1,6 +1,5 @@
 import styled, { css } from 'styled-components';
-import Card from 'react-bootstrap/Card';
-import { IDisabled } from '../interfaces/interface';
+import { IDragToFavorite, IHeartVisibility } from '../interfaces/interface';
 
 
 export const UsersWrapper = styled.div`
@@ -8,6 +7,7 @@ export const UsersWrapper = styled.div`
     flex-direction: column;
     border: 4px solid rgba(128, 128, 128, .3);
     border-radius: 10px;
+    margin-bottom: 1em;
 `
 
 export const UsersHeadings = styled.div`
@@ -58,145 +58,26 @@ export const UsersList = styled.div`
     border-radius: 10px;
 `
 
-export const ListFavorites = styled.div`
+export const ListFavorites = styled.div<IDragToFavorite>`
+    position: relative;
+    width: 40%;
+    transition: all .1s ease;
 
-`
-
-export const ListWrapper = styled.div`
-    width: 60%;
-`
-
-export const MyCard = styled(Card)<IDisabled>`
-    cursor: pointer;
-
-    & .card-header {
-        @media screen and (max-width: 1024px) {
-            font-size: .7em;
-            text-align: center;
-        }  
-    }
-
-    ${props => props.disabled && css`
-        pointer-events: none;
-        opacity: 60%;
+    ${props => props.dragToFavorite && css`
+        border-radius: 10px;
+        border: 3px dashed #006B53;
     `}
 `
 
-export const MyCardBody = styled(Card.Body)`
-    padding: 0;
-    max-height: 100vh;
-    overflow-x: hidden;
-    overflow-y: auto;
+export const FavoritesHearts = styled.span<IHeartVisibility>`
+    display: none;
+    position: absolute;
+    left: 40%;
+    top: 23%;
+    font-size: 2em;
+    transition: all .1s ease;
 
-    &::-webkit-scrollbar { 
-        width: 0;
-    }
-`
-
-export const CardWrapper = styled.div`
-    display: flex;
-    padding: .4em;
-    border-bottom: 1px solid rgba(128, 128, 128, .3);
-    transition: all .4s ease;
-    cursor: grab;
-    user-select: none;
-
-    @media screen and (max-width: 1200px) {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    &:hover {
-        background-color: rgba(128, 128, 128, .3);
-    }
-
-    &:active {
-        cursor: grabbing;
-    }
-
-    &:last-child {
-        border-bottom: none;
-    }
-`
-
-export const CardImg = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-right: 1em;
-
-    @media screen and (max-width: 1024px) {
-        margin: 0;
-    }
-    
-    & img {
-        border-radius: 50%;
-    }
-`
-
-export const CardInfo = styled.div`
-    display: flex;
-    flex-direction: column;
-` 
-
-export const InfoInline = styled.div`
-    display: flex;
-    flex-flow: row wrap;
-
-    @media screen and (max-width: 1024px) {
-        justify-content: center;
-    }
-`
-
-export const InlineName = styled.p`
-    font-style: italic;
-    margin-right: .5em;
-
-    @media screen and (max-width: 1024px) {
-        margin-right: 0;
-    }    
-    
-    @media screen and (max-width: 500px) {
-        font-size: .7em;
-    }
-`
-
-export const InlineRegistered = styled.p`
-    text-align: center;
-
-    @media screen and (max-width: 500px) {
-        font-size: .7em;
-    }
-
-    & span:first-child {
-        font-size: 1em;
-        font-weight: 900;
-
-        @media screen and (max-width: 500px) {
-            font-size: .7em;
-        }
-    }
-
-    & span:last-child {
-        font-size: .9em;
-    }
-`
-
-export const InfoBlock = styled.div`
-    @media screen and (max-width: 1024px) {
-        display: flex;
-        justify-content: center;
-    }
-`
-
-export const BlockMail = styled.p`
-    font-size: .9em;
-
-    @media screen and (max-width: 1024px) {
-        font-size: .7em;
-    }
-
-    @media screen and (max-width: 500px) {
-        font-size: .5em;
-    }
+    ${props => props.heartVisibility && css`
+        display: block;
+    `}
 `
