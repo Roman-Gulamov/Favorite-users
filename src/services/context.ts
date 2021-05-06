@@ -1,4 +1,3 @@
-import { FormEvent, RefObject } from 'react';
 import { createContext } from 'react';
 import { IContext } from '../interfaces/interface';
 
@@ -6,7 +5,14 @@ import { IContext } from '../interfaces/interface';
 const Context = createContext<IContext>({
     usersList: [],
     searchRef: null,
-    searchName: (event: FormEvent<HTMLInputElement>, searchRef: RefObject<HTMLDivElement>) => {}
+    searchName: (event, searchRef) => {},
+    heartVisibility: false,
+    dragToFavorite: false,
+    dragStartHandler: (event, card) => {}, 
+    dragLeaveHandler: (event) => {}, 
+    dragEndHandler: (event) => {}, 
+    dragOverHandler: (event) => {}, 
+    dropHandler: (event, card) => {}
 }); 
 
 export default Context;
