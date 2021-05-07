@@ -3,15 +3,19 @@ import { DragEvent, FormEvent, RefObject } from "react";
 
 export interface IContext {
     usersList: Array<IResultData>,
+    favoriteList: Array<IResultData>,
     searchRef: RefObject<HTMLDivElement>
     searchName: (event: FormEvent<HTMLInputElement>, searchRef: RefObject<HTMLDivElement>) => void,
     heartVisibility: boolean,
     dragToFavorite: boolean,
-    dragStartHandler: (event: DragEvent<HTMLDivElement>, card: IResultData) => void, 
-    dragLeaveHandler: (event: DragEvent<HTMLDivElement>) => void, 
-    dragEndHandler: (event: DragEvent<HTMLDivElement>) => void, 
-    dragOverHandler: (event: DragEvent<HTMLDivElement>) => void, 
-    dropHandler: (event: DragEvent<HTMLDivElement>, card: IResultData) => void
+    favoriteWrapperDrop: (event: DragEvent<HTMLDivElement>) => void,
+    favoriteDragStart: (card: IResultData) => void, 
+    favoriteDragLeave: (event: DragEvent<HTMLDivElement>) => void, 
+    favoriteDragOver: (event: DragEvent<HTMLDivElement>) => void, 
+    favoriteDrop: (event: DragEvent<HTMLDivElement>, card: IResultData) => void,
+    removeFavorite: (card: IResultData) => void,
+    usersDragStart: (card: IResultData, list: Array<IResultData>) => void,
+    usersDragEnd: (event: DragEvent<HTMLDivElement>) => void
 }
 
 export interface IStatus {
@@ -30,6 +34,9 @@ export interface ICardsProps {
     max: number
 }
 
+export interface ICardData {
+    card: IResultData
+}
 
 export interface IResultData {
     email: string,
@@ -39,8 +46,8 @@ export interface IResultData {
 }
 
 interface Registered {
-    age: number,
-    date: string
+    age?: number,
+    date?: string
 }
 
 interface Name {
