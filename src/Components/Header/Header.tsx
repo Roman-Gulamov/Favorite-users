@@ -1,3 +1,5 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearchLocation } from '@fortawesome/free-solid-svg-icons';
 import Container from 'react-bootstrap/Container';
 
 import { 
@@ -13,7 +15,9 @@ export const Header = (): JSX.Element => {
             <Container>
                 <HeaderInner>
                     <InnerText>Найди своего пользователя!</InnerText>
-                    <InnerIcon role="img" aria-label="search">&#128270;</InnerIcon>
+                    <InnerIcon>
+                        <FontAwesomeIcon icon={faSearchLocation} size='lg' />
+                    </InnerIcon>
                 </HeaderInner>
             </Container>
         </HeaderWrapper>
