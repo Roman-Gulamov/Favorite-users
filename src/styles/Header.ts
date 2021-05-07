@@ -26,24 +26,10 @@ export const InnerText = styled.span`
     @media screen and (max-width: 500px) {
         font-size: .8em;
     }
-
-    @media screen and (max-width: 300px) {
-        font-size: .7em;
-    }
 `
 
-export const InnerIcon = styled.span`
-    font-size: 1.6em;
-    
-    @media screen and (max-width: 1024px) {
-        font-size: 1.2em;
-    }
-
-    @media screen and (max-width: 500px) {
-        font-size: .8em;
-    }
-
-    @media screen and (max-width: 300px) {
-        font-size: .7em;
+export const InnerIcon = styled.div`
+    & svg {
+        color: #fff;
     }
 `

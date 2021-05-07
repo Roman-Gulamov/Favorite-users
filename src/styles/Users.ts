@@ -1,5 +1,4 @@
-import styled, { css } from 'styled-components';
-import { IDragToFavorite, IHeartVisibility } from '../interfaces/interface';
+import styled from 'styled-components';
 
 
 export const UsersWrapper = styled.div`
@@ -13,7 +12,7 @@ export const UsersWrapper = styled.div`
 export const UsersHeadings = styled.div`
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: stretch;
     height: 8vh;
     padding: 0 .6em;
 `
@@ -56,28 +55,4 @@ export const UsersList = styled.div`
     flex-direction: row;
     border-top: 4px solid rgba(128, 128, 128, .3);
     border-radius: 10px;
-`
-
-export const ListFavorites = styled.div<IDragToFavorite>`
-    position: relative;
-    width: 40%;
-    transition: all .1s ease;
-
-    ${props => props.dragToFavorite && css`
-        border-radius: 10px;
-        border: 3px dashed #006B53;
-    `}
-`
-
-export const FavoritesHearts = styled.span<IHeartVisibility>`
-    display: none;
-    position: absolute;
-    left: 40%;
-    top: 23%;
-    font-size: 2em;
-    transition: all .1s ease;
-
-    ${props => props.heartVisibility && css`
-        display: block;
-    `}
 `
