@@ -4,15 +4,19 @@ import { IContext } from '../interfaces/interface';
 
 const Context = createContext<IContext>({
     usersList: [],
+    favoriteList: [],
     searchRef: null,
-    searchName: (event, searchRef) => {},
+    searchName: () => {},
     heartVisibility: false,
     dragToFavorite: false,
-    dragStartHandler: (event, card) => {}, 
-    dragLeaveHandler: (event) => {}, 
-    dragEndHandler: (event) => {}, 
-    dragOverHandler: (event) => {}, 
-    dropHandler: (event, card) => {}
+    favoriteWrapperDrop: () => {},
+    favoriteDragStart: () => {}, 
+    favoriteDragLeave: () => {}, 
+    favoriteDragOver: () => {}, 
+    favoriteDrop: () => {},
+    removeFavorite: () => {},
+    usersDragStart: () => {},
+    usersDragEnd: () => {},
 }); 
 
 export default Context;
