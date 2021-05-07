@@ -2,16 +2,15 @@ import { useContext } from 'react';
 import Context from '../../services/context';
 import Container from 'react-bootstrap/Container';
 
-import { ListCards } from './ListCards';
+import { ListUsers } from './ListUsers';
+import { ListFavorites } from './ListFavorites';
 
 import { 
     UsersWrapper,
     UsersHeadings,
     HeadingSearch,
     HeadingFavorite,
-    UsersList,
-    ListFavorites,
-    FavoritesHearts } from '../../styles/Users';
+    UsersList } from '../../styles/Users';
 
 
 export const Users = (): JSX.Element => {
@@ -33,18 +32,8 @@ export const Users = (): JSX.Element => {
                     <HeadingFavorite>Избранные</HeadingFavorite>
                 </UsersHeadings>
                 <UsersList>
-                    <ListCards />
-                    <ListFavorites 
-                        dragToFavorite={listProps.dragToFavorite}
-                    >
-                        123
-                        <FavoritesHearts 
-                            heartVisibility={listProps.heartVisibility} 
-                            role="img" 
-                            aria-label="heart"
-                        > &#128154;
-                        </FavoritesHearts>
-                    </ListFavorites>
+                    <ListUsers />
+                    <ListFavorites />
                 </UsersList>
             </UsersWrapper>
         </Container>
