@@ -12,7 +12,7 @@ import {
     CardDelete } from '../../styles/ListFavorites';
 
 
-export const ListFavorites = () => {
+export const ListFavorites = (): JSX.Element => {
     const listProps = useContext(Context);
 
     return (
