@@ -1,3 +1,5 @@
+![FavoriteUsers](https://res.cloudinary.com/romangulamov/image/upload/v1620859656/Screenshots/FavoriteUsers_v9vucr.png)
+
 # Instructions for starting a project:
 
 ``` bash
